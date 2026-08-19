@@ -1,4 +1,4 @@
-# Your service name goes here
+# Your NHS App project name goes here
 
 This repo is used as a template for creating new prototype for the NHS App using the NHS Prototype kit
 
