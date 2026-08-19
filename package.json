@@ -1,6 +1,6 @@
 {
   "name": "your-service-name-goes-here",
-  "description": "Rapidly create HTML prototypes of NHS websites and services.",
+  "description": "Rapidly create prototypes of the NHS App",
   "main": "app.js",
   "scripts": {
     "start": "node .",
