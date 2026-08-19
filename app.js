@@ -8,7 +8,8 @@ const locals = require('./app/locals')
 const routes = require('./app/routes')
 
 const viewsPath = [
-  'app/views/'
+  'app/views/',
+  'node_modules/nhsapp-frontend/dist/'
 ]
 
 const entryPoints = [
