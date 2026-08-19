@@ -17,7 +17,7 @@
   service name is needed. You can also reuse this variable
   within the <h1>, where they are the same.
 -->
-{% set pageName = "" %}
+{% set pageName = "Home" %}
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
@@ -30,14 +30,9 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
-
       <h1 class="nhsuk-heading-xl">
-        {{ serviceName }}
+        {{ pageName }}
       </h1>
-
-      <p>Set the service name for your prototype by editing <strong>/app/config.js</strong>.</p>
 
       <p>
         This is the index page for your prototype. You can find it at <strong>/app/views/index.html</strong>.
