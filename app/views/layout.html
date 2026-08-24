@@ -16,6 +16,11 @@
 {% from "nhsapp/components/tag/macro.njk" import nhsappTag %}
 {% from "nhsapp/components/timeline/macro.njk" import nhsappTimeline %}
 
+{% block pageTitle -%}
+  {%- if errors === true or (errors | length) %}Error: {% endif -%}
+  {%- if pageName %}{{ pageName }} – {% endif -%}
+  NHS App
+{%- endblock %}
 
 {% block head %}
   <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
