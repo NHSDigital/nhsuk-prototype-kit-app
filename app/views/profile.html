@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% set section = "Profile" %}
+{% set pageName = "Profile" %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-xl">
+    {{ pageName }}
+  </h1>
+  
+
+  {% set profileDescriptionHtml %}
+    <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> 15 March 1984</p>
+    <p><strong>NHS number:</strong> 123 456 7890</p>
+  {% endset %}
+
+  {{ nhsappCardGroup({
+    stacked: true,
+    classes: "nhsapp-cards--pale-blue",
+    isListItem: false,
+    cards: [
+      {
+        title: "Mary Swanson",
+        titleClasses: "nhsuk-u-font-size-36",
+        headingLevel: "2",
+        descriptionHtml: profileDescriptionHtml
+      },
+      {
+        title: "Manage health services for others",
+        href: "#"
+      }
+    ]
+  }) }}
+
+  {{ nhsappCardGroup({
+    stacked: true,
+    heading: 'Personal details',
+    cards: [
+      {
+        title: 'Contact details',
+        href: '#'
+      },
+      {
+        title: 'Your GP surgery',
+        href: '#'
+      },
+      {
+        title: 'Health choices',
+        href: '#'
+      },
+      {
+        title: 'Care plans',
+        href: '#'
+      }
+    ]
+  }) }}
+
+  {{ nhsappCardGroup({
+    stacked: true,
+    heading: 'App settings',
+    cards: [
+      {
+        title: 'Contact and login details',
+        href: '#'
+      },
+      {
+        title: 'Cookies',
+        href: '#'
+      }
+    ]
+  }) }}  
+
+  {{ nhsappCardGroup({
+    stacked: true,
+    heading: 'About the NHS App',
+    cards: [
+      {
+        title: 'Privacy and legal information',
+        href: '#'
+      }
+    ]
+  }) }}
+
+  {{ button({
+    text: "Logout",
+    href: "#",
+    variant: 'secondary',
+    classes: 'nhsapp-button'
+  })}}
+{% endblock %}
