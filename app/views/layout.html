@@ -32,6 +32,20 @@
     service: {
       text: "App",
       href: "/"
+    },
+    navigation: {
+      items: [
+        {
+          href: "/",
+          text: "Home",
+          current: (section == "Home")
+        },
+        {
+          href: "/profile",
+          text: "Profile",
+          current: (section == "Profile")
+        }
+      ]
     }
   }) }}
 {% endblock %}
