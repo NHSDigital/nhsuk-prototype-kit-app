@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% set section = "Messages" %}
+{% set pageName = message.sender %}
+
+{% block beforeContent %}   
+  {{ backLink({
+    href: "/messages",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">{{ pageName }}</h1>
+  <p class="nhsuk-u-secondary-text-colour nhsuk-u-margin-bottom-5">Sent {{ message.date | formatDate }} at 7:12pm</p>
+
+  <p>{{ message.content }}</p>
+
+  <hr>
+  <p><a href="#">Flag message</a></p>
+  <p><a href="#">Remove message</a></p>
+{% endblock %}

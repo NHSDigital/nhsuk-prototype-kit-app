@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set section = "Messages" %}
+{% set pageName = "Your messages" %}
+
+{% block content %}
+
+  <h1 class="nhsuk-heading-xl">
+    {{ pageName }}
+  </h1>
+
+  {% set cards = [] %}
+
+  {# This loops through all the messages in the session data - to add or edit a message, edit session-data-defaults.js #}
+
+  {% for message in data.messages  | sort(true, false, "date") %}
+    {% set dateHtml %}
+        <span class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhsuk-u-secondary-text-colour nhsuk-u-body">{{ message.date | formatDate }}</span>
+    {% endset %}
+
+    {% set titleHtml %}
+      {% if message.read == false %}
+      {{ nhsappBadgeSmall({
+        label: 'Unread message',
+        classes: 'nhsapp-badge-small--absolute'
+      }) }}
+      {%- endif -%}
+      {{ message.sender }}
+    {% endset %}
+
+    {% set cards = (cards.push({
+      aboveContent: {
+        html: dateHtml
+      },
+      titleHtml: titleHtml,
+      description: message.content,
+      descriptionClasses: "nhsapp-u-truncate-two-lines",
+      href: "/messages/" + message.id,
+      classes: "nhsuk-u-padding-left-6",
+      containerClasses: "nhsuk-u-padding-left-0"
+    }), cards) %}
+  {% endfor %}
+
+  {{ nhsappCardGroup({
+    stacked: true,
+    cards: cards
+  }) }}  
+
+{% endblock %}
