@@ -13,9 +13,9 @@
 
   {# This loops through all the messages in the session data - to add or edit a message, edit session-data-defaults.js #}
 
-  {% for message in data.messages  | sort(true, false, "date") %}
+  {% for message in data.messages  | sort(true, false, "sentTime") %}
     {% set dateHtml %}
-        <span class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhsuk-u-secondary-text-colour nhsuk-u-body">{{ message.date | formatDate }}</span>
+        <span class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhsuk-u-secondary-text-colour nhsuk-u-body">{{ message.sentTime | formatDate }}</span>
     {% endset %}
 
     {% set titleHtml %}
