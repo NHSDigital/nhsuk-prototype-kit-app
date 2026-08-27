@@ -28,44 +28,7 @@
 {% endblock %}
 
 {% block header %}
-  {{ header({
-    service: {
-      text: "App",
-      href: "/"
-    },
-    account: {
-      classes: "nhsapp-u-hide-until-tablet",
-      items: [
-        {
-          text: "App help",
-          href: "#"
-        },
-        {
-          text: "Log out",
-          href: "#"
-        }
-      ]
-    },
-    navigation: {
-      items: [
-        {
-          href: "/",
-          text: "Home",
-          current: (section == "Home")
-        },
-        {
-          href: "/messages",
-          text: "Messages",
-          current: (section == "Messages")
-        },
-        {
-          href: "/profile",
-          text: "Profile",
-          current: (section == "Profile")
-        }
-      ]
-    }
-  }) }}
+  {% include "_includes/" + ("web" if data.web and data.web !== 'no' else "native") + "-header.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -88,5 +51,6 @@
 {% block bodyEnd %}
   {{ super() }}
   <script type="module" src="/assets/javascript/main.js"></script>
+  <script type="module" src="/assets/javascript/native-header.js"></script>
   {% block pageScripts %}{% endblock %}
 {% endblock %}
