@@ -5,6 +5,9 @@ module.exports = function(req, res, next) {
   // Add the version of the NHS app frontend being used
   res.locals.nhsappFrontendVersion = `v${nhsappFrontendPkg.version}`
 
+  // Used to show the unread messages badge in the bottom navigation
+  res.locals.unreadMessages = () => req.session.data.messages?.some((message) => message.read === false)
+
   // You can set any additional local variables here.
   // These will be made available to any views
   //
