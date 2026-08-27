@@ -4,4 +4,7 @@ $nhsuk-assets-path: "/nhsuk-frontend/assets/";
 @import "nhsuk-frontend/dist/nhsuk";
 @import "nhsapp-frontend/dist/nhsapp";
 
+// Add styles for components which mock the native app
+@import "native-header";
+
 // Add your custom CSS/Sass styles below.

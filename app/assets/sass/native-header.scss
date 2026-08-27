@@ -1,0 +1,58 @@
+
+////
+/// Mocks up the fixed navigation header shown in the NHS App native wrapper,
+/// allowing prototype screens to be previewed in context.
+///
+/// @group components/native-header
+////
+
+.app-native-header {
+  -webkit-tap-highlight-color: transparent;
+  background-color: $nhsuk-body-background-colour;
+  padding: nhsuk-spacing(2) 0;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  z-index: 1;
+
+  &.stuck {
+    background-color: nhsuk-tint($nhsuk-body-background-colour, 60%);
+    border-bottom: $nhsuk-border-width-form-element solid rgba($nhsuk-text-colour, 0.1);
+  }
+}
+
+.app-native-header__inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-native-header__help-link {
+  @include nhsuk-font-size(16);
+
+  border: $nhsuk-border-width-form-element solid $nhsuk-border-colour;
+  border-radius: nhsuk-spacing(2);
+  color: $nhsuk-link-colour;
+  display: block;
+  font-weight: $nhsuk-font-weight-bold;
+  padding: nhsuk-spacing(1) nhsuk-spacing(2);
+  text-decoration: none;
+
+  &:hover,
+  &:visited {
+    color: $nhsuk-link-colour;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.app-native-header__logo {
+  padding: nhsuk-spacing(2) 0;
+
+  &:active {
+    opacity: 0.5;
+  }
+}
