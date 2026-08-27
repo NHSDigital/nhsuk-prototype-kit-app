@@ -1,36 +1,34 @@
 {% from "nhsapp/styles/icon/macro.njk" import nhsappIcon %}
 <nav class="app-native-bottom-navigation">
   <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <ul class="app-native-bottom-navigation__list">
-        <li class="app-native-bottom-navigation__item">
-          <a class="app-native-bottom-navigation__link" href="/">
-            {{ nhsappIcon('homeFilled' if section === 'Home' else 'home') }}
-            <span class="app-native-bottom-navigation__label {% if section === 'Home' %}app-native-bottom-navigation__label--active{% endif %}">Home</span>
-          </a>
-        </li>
-        <li class="app-native-bottom-navigation__item">
-          <a class="app-native-bottom-navigation__link" href="/messages">
-            {% if section === 'Messages' and unreadMessages() %}
-              {% set messagesIcon = 'messagesUnreadFilled' %}
-            {% elif section === 'Messages' %}
-              {% set messagesIcon = 'messagesFilled' %}
-            {% elif unreadMessages() %}
-              {% set messagesIcon = 'messagesUnread' %}
-            {% else %}
-              {% set messagesIcon = 'messages' %}
-            {% endif %}
-            {{ nhsappIcon(messagesIcon) }}
-            <span class="app-native-bottom-navigation__label {% if section === 'Messages' %}app-native-bottom-navigation__label--active{% endif %}">Messages</span>
-          </a>
-        </li>
-        <li class="app-native-bottom-navigation__item">
-          <a class="app-native-bottom-navigation__link" href="/profile">
-            {{ nhsappIcon('accountFilled' if section === 'Profile' else 'account') }}
-            <span class="app-native-bottom-navigation__label {% if section === 'Profile' %}app-native-bottom-navigation__label--active{% endif %}">Profile</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul class="app-native-bottom-navigation__list">
+      <li class="app-native-bottom-navigation__item">
+        <a class="app-native-bottom-navigation__link" href="/">
+          {{ nhsappIcon('homeFilled' if section === 'Home' else 'home') }}
+          <span class="app-native-bottom-navigation__label {% if section === 'Home' %}app-native-bottom-navigation__label--active{% endif %}">Home</span>
+        </a>
+      </li>
+      <li class="app-native-bottom-navigation__item">
+        <a class="app-native-bottom-navigation__link" href="/messages">
+          {% if section === 'Messages' and unreadMessages() %}
+            {% set messagesIcon = 'messagesUnreadFilled' %}
+          {% elif section === 'Messages' %}
+            {% set messagesIcon = 'messagesFilled' %}
+          {% elif unreadMessages() %}
+            {% set messagesIcon = 'messagesUnread' %}
+          {% else %}
+            {% set messagesIcon = 'messages' %}
+          {% endif %}
+          {{ nhsappIcon(messagesIcon) }}
+          <span class="app-native-bottom-navigation__label {% if section === 'Messages' %}app-native-bottom-navigation__label--active{% endif %}">Messages</span>
+        </a>
+      </li>
+      <li class="app-native-bottom-navigation__item">
+        <a class="app-native-bottom-navigation__link" href="/profile">
+          {{ nhsappIcon('accountFilled' if section === 'Profile' else 'account') }}
+          <span class="app-native-bottom-navigation__label {% if section === 'Profile' %}app-native-bottom-navigation__label--active{% endif %}">Profile</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
