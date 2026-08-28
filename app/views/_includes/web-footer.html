@@ -1,0 +1,14 @@
+{{ footer({
+  meta: {
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+        text: "Reset data"
+      }
+    ]
+  }
+}) }}

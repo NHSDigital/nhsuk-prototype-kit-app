@@ -32,20 +32,7 @@
 {% endblock %}
 
 {% block footer %}
-  {{ footer({
-    meta: {
-      items: [
-        {
-          href: "/",
-          text: "Home"
-        },
-        {
-          href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
-          text: "Reset data"
-        }
-      ]
-    }
-  }) }}
+  {% include "_includes/" + ("web-footer" if data.web and data.web !== 'no' else "native-bottom-navigation") + ".html" %}  
 {% endblock %}
 
 {% block bodyEnd %}
