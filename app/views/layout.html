@@ -16,6 +16,10 @@
 {% from "nhsapp/components/tag/macro.njk" import nhsappTag %}
 {% from "nhsapp/components/timeline/macro.njk" import nhsappTimeline %}
 
+{% if data.web !== 'yes' %}
+  {% set htmlClasses = "app-native__html" %}
+{% endif %}
+
 {% block pageTitle -%}
   {%- if errors === true or (errors | length) %}Error: {% endif -%}
   {%- if pageName %}{{ pageName }} – {% endif -%}

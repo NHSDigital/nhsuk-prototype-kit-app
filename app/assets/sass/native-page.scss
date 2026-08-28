@@ -1,0 +1,6 @@
+// The native app doesn't use the a darker grey footer
+// so set the background colour for the HTML to
+// match the page colour instead.
+.app-native__html {
+  background-color: $nhsuk-body-background-colour;
+}
