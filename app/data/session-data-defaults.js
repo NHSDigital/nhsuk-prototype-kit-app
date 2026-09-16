@@ -4,7 +4,7 @@ module.exports = {
   messages: [
     {
       id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-      sentTime: "2025-10-21",
+      sentTime: "2025-10-21T15:31Z",
       sender: "Portland Street Great Westood Surgery",
       content: "Reminder of your telephone appointment with your GP on Friday 23 October at 1:30pm.",
       read: false,
