@@ -11,7 +11,7 @@
   "dependencies": {
     "nhsapp-frontend": "^5.2.0",
     "nhsuk-frontend": "^10.6.1",
-    "nhsuk-prototype-kit": "^8.4.0"
+    "nhsuk-prototype-kit": "^8.5.0"
   },
   "devDependencies": {
   },
