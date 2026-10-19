@@ -8,6 +8,10 @@
       {
         href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
         text: "Reset data"
+      },
+      {
+        href: currentPage.split("?")[0] + "?web=no",
+        text: "Switch to app"
       }
     ]
   }
