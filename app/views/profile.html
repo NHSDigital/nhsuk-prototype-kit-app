@@ -11,8 +11,8 @@
   
 
   {% set profileDescriptionHtml %}
-    <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> 15 March 1984</p>
-    <p><strong>NHS number:</strong> 123 456 7890</p>
+    <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> {{ data.currentUser.dateOfBirth | formatDate }}</p>
+    <p><strong>NHS number:</strong> {{ data.currentUser.nhsNumber | formatNhsNumber }}</p>
   {% endset %}
 
   {{ nhsappCardGroup({
@@ -21,7 +21,7 @@
     isListItem: false,
     cards: [
       {
-        title: "Mary Swanson",
+        title: data.currentUser.firstName + " " + data.currentUser.lastName,
         titleClasses: "nhsuk-u-font-size-36",
         headingLevel: "2",
         descriptionHtml: profileDescriptionHtml
