@@ -30,19 +30,19 @@
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-full">
 
       <h1 class="nhsuk-heading-xl">
         {{ pageName }}
       </h1>
 
+      <!-- Remove the content below when you are ready to. -->
+
       <p>
-        This is the home screen for your prototype. You can find it at <strong>/app/views/index.html</strong>.
+        This is the home screen for your prototype. You can find it at <strong>/app/views/index.html</strong> and edit it there.
       </p>
 
-      <hr>
-
-      <h2 class="nhsuk-heading-l">
+      <h2 class="nhsuk-heading-m">
         Get started
       </h2>
 
@@ -57,6 +57,73 @@
           <a href="https://design-system.nhsapp.service.nhs.uk">NHS App design system</a> – for style, components and patterns specific to the NHS App
         </li>
       </ul>
+
+      <hr>
+
+      <!-- Remove the content above when you are ready to. -->
+      
+      {{ nhsappCardGroup({
+        stacked: true,
+        cards: [
+          {
+            title: "Prescriptions",
+            href: "#"
+          },
+          {
+            title: "Appointments",
+            href: "#"
+          },
+          {
+            title: "Test results",
+            href: "#"
+          },
+          {
+            title: "Vaccinations",
+            href: "#"
+          },
+          {
+            title: "Health conditions",
+            href: "#"
+          },
+          {
+            title: "Documents",
+            href: "#"
+          }
+        ]
+      }) }}
+
+      {{ nhsappCardGroup({
+        stacked: true,
+        heading: "NHS information and support",
+        cards: [
+          {
+            title: "Check your symptoms online using 111 online",
+            href: "#",
+            classes: "nhsapp-card--secondary"
+          },
+          {
+            title: "Health A to Z",
+            href: "#",
+            classes: "nhsapp-card--secondary"
+          },
+          {
+            title: "Find NHS services near you",
+            href: "#",
+            classes: "nhsapp-card--secondary"
+          }
+        ]
+      }) }}     
+
+      {{ nhsappCard({
+        classes: "nhsapp-card--dark-blue",
+        href: "#",
+        title: "Organ donors save lives",
+        titleClasses: "nhsuk-u-font-size-26",
+        descriptionHtml: '<p class="nhsuk-u-margin-top-2">Take 2 minutes to check and confirm your organ donation decision</p>',
+        img: {
+          src: "/assets/images/organ-donation-campaign.jpg"
+        }
+      }) }}
 
       <hr>
 
