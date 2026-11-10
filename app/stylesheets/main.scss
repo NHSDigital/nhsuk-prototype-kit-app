@@ -1,7 +1,3 @@
-// Use NHS.UK frontend and NHS App frontend
-@use "nhsuk-frontend/dist/nhsuk" as * with (
-  $nhsuk-assets-path: "/nhsuk-frontend/assets/"
-);
 // Use NHS.UK frontend
 @use "nhsuk-frontend/dist/nhsuk" as * with (
   $nhsuk-assets-path: "/nhsuk-frontend/assets/"
