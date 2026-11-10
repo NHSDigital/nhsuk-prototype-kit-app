@@ -4,7 +4,7 @@ export class NativeHeader extends Component {
   static moduleName = 'app-native-header'
 
   constructor($root) {
-    this.$root = $root
+    super($root)
     window.addEventListener('scroll', this.onScroll.bind(this), { passive: true })
   }
 
