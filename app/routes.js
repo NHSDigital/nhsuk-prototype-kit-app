@@ -1,5 +1,5 @@
 // External dependencies
-const express = require('express')
+import express from 'express'
 
 const router = express.Router()
 
@@ -16,6 +16,6 @@ router.get('/messages/:id', (req, res) => {
   res.render('message', { message })
 })
 
-// Add your routes here - above the module.exports line
+// Add your routes here - above the export default line
 
-module.exports = router
+export default router
