@@ -1,4 +1,6 @@
-export class NativeHeader {
+import { Component } from '/nhsuk-frontend/nhsuk-frontend.min.js'
+
+export class NativeHeader extends Component {
   static moduleName = 'app-native-header'
 
   constructor($root) {
