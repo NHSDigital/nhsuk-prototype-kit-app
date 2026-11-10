@@ -1,0 +1,12 @@
+// Use NHS.UK frontend and NHS App frontend
+@use "nhsuk-frontend/dist/nhsuk" as * with (
+  $nhsuk-assets-path: "/nhsuk-frontend/assets/"
+);
+@use "nhsapp-frontend/dist/nhsapp/all" as *;
+
+// Add styles for components which mock the native app
+@forward "native-header";
+@forward "native-bottom-navigation";
+@forward "native-page";
+
+// Add your custom CSS/Sass styles below.

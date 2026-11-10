@@ -1,6 +1,6 @@
-const nhsappFrontendPkg = require('nhsapp-frontend/package.json')
+import nhsappFrontendPkg from 'nhsapp-frontend/package.json' with { type: 'json' }
 
-module.exports = function(req, res, next) {
+export default function(req, res, next) {
 
   // Add the version of the NHS app frontend being used
   res.locals.nhsappFrontendVersion = `v${nhsappFrontendPkg.version}`
