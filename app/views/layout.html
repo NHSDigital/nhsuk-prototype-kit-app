@@ -36,12 +36,11 @@
 {% endblock %}
 
 {% block footer %}
-  {% include "_includes/" + ("web-footer" if data.web and data.web !== 'no' else "native-bottom-navigation") + ".html" %}  
+  {% include "_includes/" + ("web-footer" if data.web and data.web !== 'no' else "native-bottom-navigation") + ".html" %}
 {% endblock %}
 
 {% block bodyEnd %}
   {{ super() }}
   <script type="module" src="/javascripts/main.js"></script>
-  <script type="module" src="/javascripts/native-header.js"></script>
   {% block pageScripts %}{% endblock %}
 {% endblock %}

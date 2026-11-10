@@ -1,4 +1,4 @@
-class NativeHeader {
+export class NativeHeader {
   static moduleName = 'app-native-header'
 
   constructor($root) {
@@ -10,7 +10,3 @@ class NativeHeader {
     this.$root.classList.toggle('stuck', window.scrollY > 0)
   }
 }
-
-document.querySelectorAll(`[data-module="${NativeHeader.moduleName}"]`).forEach(($root) => {
-  new NativeHeader($root)
-})
