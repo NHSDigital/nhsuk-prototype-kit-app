@@ -6,6 +6,8 @@
 // Use NHS App frontend
 @use "nhsapp-frontend/dist/nhsapp/all" as *;
 
+@forward "switch-banner";
+
 // Add styles for components which mock the native app
 @forward "native-header";
 @forward "native-bottom-navigation";

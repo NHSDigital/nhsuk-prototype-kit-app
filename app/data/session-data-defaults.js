@@ -6,6 +6,14 @@ export default {
     lastName: "Swanson",
     nhsNumber: "1234567890",
     dateOfBirth: "1984-03-15",
+    familyAndCarerAccess: [
+      {
+        firstName: "Toby",
+        lastName: "Day",
+        nhsNumber: "0987654321",
+        dateOfBirth: "1943-04-27"
+      }
+    ]
   },
   messages: [
     {
