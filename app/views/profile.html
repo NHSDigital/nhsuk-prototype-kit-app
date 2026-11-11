@@ -8,11 +8,23 @@
   <h1 class="nhsuk-heading-xl">
     {{ pageName }}
   </h1>
-  
+
 
   {% set profileDescriptionHtml %}
-    <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> {{ data.currentUser.dateOfBirth | formatDate }}</p>
-    <p><strong>NHS number:</strong> {{ data.currentUser.nhsNumber | formatNhsNumber }}</p>
+    <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> {{ currentPerson.dateOfBirth | formatDate }}</p>
+    {% if not currentlyActingOnBehalfOf %}
+      <p><strong>NHS number:</strong> {{ currentPerson.nhsNumber | formatNhsNumber }}</p>
+    {% endif %}
+  {% endset %}
+
+  {% set name = currentPerson.firstName + " " + currentPerson.lastName %}
+
+  {% set switchTitle = "Switch back to your profile" if currentlyActingOnBehalfOf else "Family and carer access" %}
+
+  {% set switchHref = "/family-and-carer-access" if not currentlyActingOnBehalfOf else "/family-and-carer-access/switch-back" %}
+
+  {% set switchCardHtml %}
+    <p>Manage another person's profile.</p>
   {% endset %}
 
   {{ nhsappCardGroup({
@@ -21,14 +33,15 @@
     isListItem: false,
     cards: [
       {
-        title: data.currentUser.firstName + " " + data.currentUser.lastName,
+        title: name,
         titleClasses: "nhsuk-u-font-size-36",
         headingLevel: "2",
         descriptionHtml: profileDescriptionHtml
       },
       {
-        title: "Manage health services for others",
-        href: "#"
+        title: switchTitle,
+        href: switchHref,
+        descriptionHtml: switchCardHtml if not currentlyActingOnBehalfOf
       }
     ]
   }) }}
@@ -69,7 +82,7 @@
         href: "#"
       }
     ]
-  }) }}  
+  }) }}
 
   {{ nhsappCardGroup({
     stacked: true,
