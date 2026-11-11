@@ -12,16 +12,16 @@
 
   {% set profileDescriptionHtml %}
     <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong> {{ currentPerson.dateOfBirth | formatDate }}</p>
-    {% if not data.currentlyActingOnBehalfOfNhsNumber %}
+    {% if not currentlyActingOnBehalfOf %}
       <p><strong>NHS number:</strong> {{ currentPerson.nhsNumber | formatNhsNumber }}</p>
     {% endif %}
   {% endset %}
 
   {% set name = currentPerson.firstName + " " + currentPerson.lastName %}
 
-  {% set switchTitle = "Switch back to your profile" if data.currentlyActingOnBehalfOfNhsNumber else "Family and carer access" %}
+  {% set switchTitle = "Switch back to your profile" if currentlyActingOnBehalfOf else "Family and carer access" %}
 
-  {% set switchHref = "/family-and-carer-access" if not data.currentlyActingOnBehalfOfNhsNumber else "/family-and-carer-access/switch-back" %}
+  {% set switchHref = "/family-and-carer-access" if not currentlyActingOnBehalfOf else "/family-and-carer-access/switch-back" %}
 
   {% set switchCardHtml %}
     <p>Manage another person's profile.</p>
@@ -41,7 +41,7 @@
       {
         title: switchTitle,
         href: switchHref,
-        descriptionHtml: switchCardHtml if not data.currentlyActingOnBehalfOfNhsNumber
+        descriptionHtml: switchCardHtml if not currentlyActingOnBehalfOf
       }
     ]
   }) }}

@@ -34,7 +34,7 @@
 {% block header %}
   {% include "_includes/" + ("web" if data.web and data.web !== 'no' else "native") + "-header.html" %}
 
-  {% if data.currentlyActingOnBehalfOfNhsNumber %}
+  {% if currentlyActingOnBehalfOf %}
     <div class="nhsapp-switch-banner nhsuk-u-padding-bottom-4 nhsuk-u-padding-top-4 nhsuk-u-margin-bottom-4">
       <div class="nhsuk-width-container">
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">Acting for {{ currentPerson.firstName }} {{ currentPerson.lastName }}</h2>
