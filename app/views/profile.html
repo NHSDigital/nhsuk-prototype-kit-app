@@ -3,6 +3,8 @@
 {% set section = "Profile" %}
 {% set pageName = "Profile" %}
 
+{% block actingOnBehalfOfBanner %}{% endblock %}
+
 {% block content %}
 
   <h1 class="nhsuk-heading-xl">
@@ -29,7 +31,7 @@
 
   {{ nhsappCardGroup({
     stacked: true,
-    classes: "nhsapp-cards--pale-blue",
+    classes: "nhsapp-cards--proxy" if currentlyActingOnBehalfOf else "nhsapp-cards--pale-blue",
     isListItem: false,
     cards: [
       {
