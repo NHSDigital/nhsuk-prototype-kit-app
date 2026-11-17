@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{% set section = "Profile" %}
+{% set pageName = "You are acting on behalf of " + currentPerson.firstName + " " + currentPerson.lastName %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/family-and-carer-access",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-6">
+    {{ pageName }}
+  </h1>
+
+  <p>Age: 83 years old</p>
+  <p>GP surgery: High Street Medical Centre</p>
+
+  <form action="/family-and-carer-access/me/switch" method="post">
+    {{ button({
+      text: "Switch to my profile"
+    }) }}
+  </form>
+
+{% endblock %}

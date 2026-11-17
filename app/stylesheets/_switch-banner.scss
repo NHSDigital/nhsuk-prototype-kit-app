@@ -1,0 +1,5 @@
+@use "nhsuk-frontend/dist/nhsuk" as *;
+
+.nhsapp-switch-banner {
+  background-color: nhsuk-colour("warm-yellow");
+}

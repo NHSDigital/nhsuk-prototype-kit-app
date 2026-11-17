@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% from "nhsuk/macros/icon.njk" import nhsukIcon %}
+
+{% set section = "Profile" %}
+{% set pageName = "Switch to " + person.firstName + " " + person.lastName + "'s profile to act on their behalf" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/family-and-carer-access",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-6">
+    {{ pageName }}
+  </h1>
+
+  {% set services = [
+    {
+      icon: "cross",
+      text: "You cannot book a GP appointment"
+    },
+    {
+      icon: "tick",
+      text: "You can order a repeat prescription"
+    },
+    {
+      icon: "tick",
+      text: "You can view their GP health record"
+    }
+  ] %}
+
+  <div class="nhsuk-do-dont-list nhsuk-u-margin-top-3">
+    <h2 class="nhsuk-heading-m nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-6">
+      Services available for {{ person.firstName }} {{ person.lastName }}
+    </h2>
+
+    {% for service in services %}
+      <ul class="nhsuk-list nhsuk-list--{{ service.icon }}">
+        <li>
+          {{ nhsukIcon(service.icon) }}
+          <p>{{ service.text }}</p>
+        </li>
+      </ul>
+    {% endfor %}
+  </div>
+
+  <form action="/family-and-carer-access/{{ person.nhsNumber }}/switch" method="post">
+    {{ button({
+      text: "Switch to " + person.firstName + " " + person.lastName + "'s profile"
+    }) }}
+  </form>
+
+{% endblock %}

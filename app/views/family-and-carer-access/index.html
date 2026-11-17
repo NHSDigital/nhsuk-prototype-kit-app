@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set section = "Profile" %}
+{% set pageName = "Family and carer access" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/profile",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">
+    {{ pageName }}
+  </h1>
+
+  <p>Support family members and people you care for, or allow trusted people to help you.</p>
+
+  {% if data.currentUser.familyAndCarerAccess.length %}
+    {% set cards = [] %}
+
+    {% for person in data.currentUser.familyAndCarerAccess %}
+      {% set cards = (cards.push({
+        title: person.firstName + " " + person.lastName,
+        href: "/family-and-carer-access/" + person.nhsNumber,
+        descriptionHtml: "<p>83 years old</p>"
+      }), cards) %}
+    {% endfor %}
+
+    {{ nhsappCardGroup({
+      stacked: true,
+      heading: "People you can access services for",
+      cards: cards
+    }) }}
+  {% endif %}
+
+  <h2 class="nhsuk-heading-s">Add people</h2>
+
+  <p>Contact your GP surgery to:</p>
+  <ul>
+    <li>apply to access services for someone else</li>
+    <li>give someone you trust access to your services</li>
+  </ul>
+
+  <p>You can only add people at the same GP surgery as you.</p>
+
+{% endblock %}
